@@ -1,0 +1,50 @@
+1.What is An API?
+
+An Application Programming Interface (API) is a contract that allows code to talk to other code. APIs are the building blocks of modern software because they allow for the sharing of resources and services across applications, organizations, and devices.
+
+/////////////////////////////////////////////////////////////
+2.Why API important?
+
+a.APIs help developers integrate exciting features and build automations without reinventing the wheel
+ex: using a Weather API instead of launching your own weather balloons
+
+b.APIs allow enterprises to open up their product for faster innovation
+ex: apps that interact with Twitter or Meta APIs by posting on your behalf or reading tweets
+
+c.APIs can be products themselves
+ex: Software as a Service (SaaS) products like Stripe's payment APIs or Twilio's text messaging and email APIs
+
+///////////////////////////////////////////////////////////////
+3.APIs - A Digital Restaurant
+You can think of APIs as being like a waiter at a restaurant, serving as a go-between for the customer and the kitchen. 
+ex: A customer who wants soup doesn’t go into the kitchen to cook. They don't even have to know how to make soup! They only have to know how to ask the waiter for soup, and expect the waiter will bring back soup.
+
+
+/////////////////////////////////////////////////////////////
+4.Types of API?
+
+It is important to know that the term "API" can apply to a broad range of interfaces.
+
+(a).Hardware APIs
+Interface for software to talk to hardware.
+Example: How your phone's camera talks to the operating system. 
+
+(b).Software Library APIs
+Interface for directly consuming code from another code base.
+Example: Using methods from a library you import into your application.
+
+(c).Web APIs
+Interface for communicating across code bases over a network.
+Example: Fetching current stock prices from a finance API over the internet.
+Multiple API types may be used to achieve a task. For example, uploading a photo to Instagram makes use of various APIs:
+
+Hardware API for the app to talk to your camera
+
+Software library API for the image to be processed with filters
+
+Web API for sending your image to Instagram's servers so your friends can like it!
+
+
+
+
+

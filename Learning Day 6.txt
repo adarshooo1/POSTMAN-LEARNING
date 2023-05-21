@@ -1,0 +1,89 @@
+#.Variables in Postman:
+
+Postman allows you to save values as variables so that you can:  
+1.Reuse values to keep your work DRY (Don’t Repeat Yourself).
+2.Hide sensitive values like API keys from being shared publicly.
+In this section we will add variables to our collection to introduce better practices and allow us to make dynamic requests. 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#.Variable Scope:
+
+You can set variables that live at various scopes. Postman will resolve to the value at the nearest and narrowest scope.
+In order from broadest to narrowest, these scopes are: global, collection, environment, data, and local.
+We will work with collection variables today, which are variables that live at the collection level and be can accessed anywhere inside the collection.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#.Variable Syntax:
+
+Once a variable is defined, you can access its value using double curly brace syntax like this: {{variableName}}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+-> Task: Set "baseUrl" variable
+One way to set a variable is to highlight the input text you'd like to convert into a variable, and follow the "Set as variable" popup instructions.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#.Make a baseUrl variable
+We use the same base URL for all requests to the library API. We can simplify our requests by replacing https://library-api.postmanlabs.com with a variable called {{baseUrl}}
+
+1.Go to the first "get books" request in your collection.
+
+2.With your cursor, select the entire base URL of the API
+(https://library-api.postmanlabs.com). Do not include the slash / after .com.
+
+Click (Set as variable) to save the base URL to a variable.
+
+3. (Click Set as a new variable)
+
+4.Name your new variable “baseUrl” and select “Collection” as the scope, then click Set variable
+
+5.Hover over {{baseUrl}}. You will see its current value is set to https://library-api.postmanlabs.com
+
+6. Now you can send your request and see that it works just like before! You should get a status 200 OK response with a list of books.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#.Where are my variables?
+
+You can find Collection variables on your collection.
+
+Click on (your collection), then the Variables tab. Here you can view and edit your variables.
+
+-> Initial Value - the value initially set when someone forks or imports your collection. Note that if you share your collection with others they will see this value, so don't put any secrets here!
+
+-> Current Value - Postman always resolves the variable to this value. This is local to your Postman account, and not public. It is good to keep secrets like API Keys ONLY in this column and not include in the Initial Value column.
+
+Update all your requests to use {{baseUrl}}.
+
+1.Set all your requests to use {{baseUrl}} to replace https://library-api.postmanlabs.com (before the slash /).
+2.Be sure to Save each request after the change!
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#.Setting variables programmatically
+
+#.Scripting in Postman
+Postman gives you the ability to add automations and dynamic behaviors to your collections with scripting.
+
+Any Node.js code in the Tests tab of a request will be executed after a response comes back from the API.
+
+#.The pm object
+
+Postman has a helper object named pm that gives you access data about your postman environment, requests, responses, variables and testing utilities. 
+
+For example, you can access the JSON response body from the API with: 
+
+pm.response.json()
+
+You can also programmatically get collection variables like the value of baseUrl with:
+
+pm.collectionVariables.get(“baseUrl”)
+
+In addition to getting variables you can also set them with pm.collectionVariables.set("variableName", "variableValue") like this:
+
+pm.collectionVariables.set(“myVar”, “foo”)
+
+

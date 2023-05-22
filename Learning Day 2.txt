@@ -1,0 +1,117 @@
+5.Architectire
+
+Types of Architecture:
+There is more than one way to build and consume APIs. Some architecture types you may come across are:
+
+REST (Representational State Transfer)
+GraphQL
+WebSockets
+webhooks
+SOAP (Simple Object Access Protocol)
+gRPC (Google Remote Procedure Call)
+MQTT (MQ Telemetry Transport)
+
+But, Here in the Postman we will learn about the REST API's.
+
+/////////////////////////////////////////////////////////////
+6. What is Rest API?
+Some traits of REST APIs include not storing session state between requests, the ability to cache, and ability to send and receive various data types. Still confused? Don't worry, we will learn hands-on very soon in this course!
+
+Accessibility-
+
+APIs also vary in the scope of who can access them.
+
+#.Public APIs (aka Open APIs)
+Consumed by anyone who discovers the API
+
+#.Private APIs
+Consumed only within an organization and not made public
+
+#.Partner APIs
+Consumed between one or more organizations that have an established relationship
+
+
+///////////////////////////////////////////////////////.
+7.What Postman API do?
+This REST API allows you to CRUD (Create, Read, Update, Delete) books in a public library database. You will use Postman to interact with this API and manage books.
+
+/////////////////////////////////////////////////////////
+8.How to create WorkSpace in Postman.
+
+Steps:
+To get started making requests in Postman, you need to be inside a workspace Tab.
+
+Let's make one! 
+
+Step:-1. Workspaces dropdown > Create Workspace
+
+Postman screenshot: select "Create Workspace" from the Workspaces dropdown
+
+Step:-2. Name your workspace "Postman API Fundamentals Student Expert" and set the visibility to Public (or Personal if you cannot make a Public workspace on your team). Then click "Create Workspace"
+
+//////////////////////////////////////////////////////////////
+9.How to create collection in the Postman?
+
+Collections are places to organize your API requests in Postman.
+
+In our workspace, let's make a new Collection where our requests to the Postman Library API v2 will live. 
+
+Step 1.From the left pane, either click the plus ("+") icon or Create collection.
+
+Create a new collection in your workspace by click the plus icon or "create collection" 
+
+Step 2.Name your new Collection:- “Postman Library API v2”
+
+Name collection "Postman Library API v2"
+
+//////////////////////////////////////////////////////////////////////
+10. Request Method In Postman.
+
+When we make an HTTP call to a server, we specify a request method that indicates the type of operation we are about to perform. These are also called HTTP verbs.
+
+Here are some common HTTP request methods that correspond to the CRUD operations mentioned earlier. You can see a list of more methods here.
+
+____________________________________
+|Method-name   |Operation           |
+|--------------|--------------------|
+|GET           |Retrieve data (Read)|
+|--------------|--------------------|
+|POST          |Send data (Create)  |
+|--------------|--------------------|+ PUT usually replaces an entire resource,Whereas
+|PUT/PATCH     |Update data (Update)|+ PATCH usually is for partial updates
+|--------------|--------------------|
+|DELETE        |Delete data (Delete)|
+|--------------|--------------------|
+
+//////////////////////////////////////////////////////
+11. Request URL
+In addition to a request method, a request must include a request URL that indicates where to make the API call. A request URL has three parts: a protocol (such as http:// or https://), host (location of the server), and path (route on the server). In REST APIs, the path often points to a reference entity, like "books".
+______________________________________________________________
+|Protocol  | Host	                               |Path       |
+|----------|-------------------------------------|-----------|
+| https:// | library-api.postmanlabs.com         | /books    |
+|__________|_____________________________________|___________|
+
+Paths and full URLs are also sometimes called API endpoints.
+/////////////////////////////////////////////////////////////////////////////////////////////////
+12. Response Code In Postman:
+
+________________________________________________________________
+Code range	|	Meaning  		  |	Example               |
+----------------------------------------------------------------|
+2xx      	|     Success             | 200 - OK                |
+201 		|	Created             |                         |
+204         |	No content 		  |	(silent OK)           |
+----------------------------------------------------------------|
+3xx	      |     Redirection 301     |	Moved (path changed)  |
+----------------------------------------------------------------|
+4xx		|	Client error  400   |	Bad request           |
+401		|	Unauthorized        |                         |
+403         |   Not permitted         |                         |
+404		|   Not found             |                         |
+----------------------------------------------------------------|
+5xx		|  Server error 500       |  Internal server error  |
+502         |  Bad gateway            |                         |
+504         |  Gateway timeout        |                         |
+----------------------------------------------------------------|
+

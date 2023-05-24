@@ -1,0 +1,30 @@
+13. Get books from the Postman Library API.
+
+you can get all the books in the library by making a request to
+GET :- https://library-api.postmanlabs.com/books. (copy url)
+Here, GET is the request method and the url is the request URL. We'll cover what that means soon - but first let's get our hands dirty with our first request!
+
+# Make your first request
+1. Create a new request by either clicking Add a request inside your new Collection, or hovering on your Collection, then clicking the three dots icon and "Add request"  
+2. Name your request "get books". Set the request method to GET, and the request URL to GET https://library-api.postmanlabs.com/books. Be sure to hit Save!
+3. Send your request by clicking the Send button
+
+#View the response
+
+If everything goes well, you will see a response from the server in the lower half of Postman.
+
+It should look something like this: a JSON (JavaScript Object Notation) response body that is an array of book objects. You can scroll down to see more books.
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\14. Resquest Response Pattern.
+
+Now you can understand the request response pattern, which represents how computers communicate over a network. An API is the interface that lets us know what kind of response to expect when we make certain calls to a server. 
+
+You made an HTTP GET request to https://library-api.postmanlabs.com/books and received a response from the server.
+
+Diagram of the request-response pattern. A client makes a request over a network to hit a server, which interprets the request, processes it, and sends back a response over the network
+
+The client is the agent making a request. A client could be a browser or an application you have coded, for example. In our case Postman is the client because that's how we sent the request. 
+
+The request is sent over a network to some server. In our case, we made a request over the public internet to a server located at the address https://library-api.postmanlabs.com. 
+
+The server interpreted the request (GET /books) and sent the appropriate response over the network back to the Postman client: a list of books.

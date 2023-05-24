@@ -1,0 +1,91 @@
+#.Query parameters
+Remember that the minimum ingredients you need to make a request are:
+
+-> a request method (GET/POST/PUT/PATCH/DELETE, etc)
+-> a request URL.
+
+Some APIs allow you to refine your request further with key-value pairs called query parameters. 
+
+//////////////////////////////////////////////////////////////////////
+
+#.Query parameter syntax
+Query parameters are added to the end of the path. They start with a question mark ?, followed by the key value pairs in the format: <key>=<value>. For example, this request might fetch all photos that have landscape orientation:
+
+GET https://some-api.com/photos?orientation=landscape
+
+If there are multiple query parameters, each is separated by an ampersand &. Below, two query parameters to specify the orientation and size of photos to be returned:
+
+GET https://some-api.com/photos?orientation=landscape&size=500x400
+
+///////////////////////////////////////////////////////////////////////
+
+Search Google - with query parameters!
+Try pasting this URL into your browser or as a GET request in Postman to make a Google search for "postman". (If you use Postman, click the "Preview" tab in the response to view the rendered HTML!)
+
+https://www.google.com/search?q=postman
+
+This request adds a search term as a query parameter q=postman ("q" refers to "query" here) to the GET /search path on Google's server.
+
+Because this parameter is in our request, the server returns an HTML document that is a search results page with hits for "postman". The search bar is pre-populated with our query "postman".
+
+Google search result screenshot for the search term "Postman". Postman is shown in the search bar, and the search results are for "Postman"
+
+You can change your search directly from the URL by changing the value for the query parameter q=<something else!>
+
+//////////////////////////////////////////////////////////////////////
+
+#.When to use query parameters?
+The answer is always: read the API documentation!
+
+Sometimes query parameters are optional and allow you to add filters or extra data to your responses. Sometimes they are required in order for the server to process your request. APIs are implemented differently to fulfill different needs. 
+
+The Postman Library API v2 allows you to add optional query parameters on requests to GET /books to filter the books that come back in response. Let's try it out next!
+
+////////////////////////////////////////////////////////////////////////
+TASK : Search books by genre
+
+Let's try to filter our books results to only show us fiction books. Check out the Postman Library API v2 documentation! 
+
+The API allows us to add query parameters to a GET /books request to filter the results, as shown under "Params"
+
+//////////////////////////////////////////////////////////////////////////
+How to Get all fiction books:
+
+Let's filter the library catalog to get all the fiction books. We can recycle the first request since we are hitting the same GET /books endpoint.
+
+1.In Postman inside the  Postman Library API v2 Collection you made, hover over the "get books" request, click the three dots icon that appears, then select Duplicate to create a copy of the request.
+
+2.Rename this second request from the default "get books Copy" to "get fiction books". You can hover on the collection name in the right pane and click the edit icon that appears. 
+
+3.Using the Params tab, add a query parameter with key genre and value fiction to the "get fiction books" request. Notice how Postman syncs the request URL in real time, adding the question mark ? automatically to mark the start of query parameters!
+
+4.Save your request
+
+5.Send your request
+
+You should get a 200 OK response with an array of books objects - but only books with the fiction genre! 
+
+/////////////////////////////////////////////////////////////////////////
+
+TASK: Multiple query Parameters:
+
+As a librarian you'll need to help visitors find books that are available (not checked out).
+
+Let's add a second query parameter to GET /books to only return books where the checkedOut property is false. Here is the documentation if you need a reminder.
+
+Add another query parameter
+
+1.In the same "get fiction books" request, in the Params tab add a second query parameter with key checkedOut and value false.
+
+2.Save your request 
+
+3.Send your request
+
+You should get a 200 OK response with an array of only fiction books that are not checked out, or an empty array [] if there are no fiction books available .
+
+
+
+
+ 
+
+ 

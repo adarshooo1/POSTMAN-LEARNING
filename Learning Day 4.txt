@@ -83,6 +83,98 @@ Add another query parameter
 
 You should get a 200 OK response with an array of only fiction books that are not checked out, or an empty array [] if there are no fiction books available .
 
+///////////////////////////////////////////////////////////////////////////
+
+#.Path Parameters
+
+Another way of passing request data to an API is via path parameters. A path parameter (or "path variable") is a dynamic section of a path, and is often used for IDs and entity names such as usernames. 
+
+#.Path parameter syntax
+
+Path parameters come immediately after a slash in the path. For example, the GitHub API allows you to search for GitHub users by providing a username in the path in place of {username} below: 
+
+-> GET https://api.github.com/users/{username}
+
+Making this API call with a value for {username} will fetch data about that user:
+
+-> GET https://api.github.com/users/postmanlabs
+
+You can have multiple path parameters in a single request, such as this endpoint for getting a user's GitHub code repository:
+
+-> GET https://api.github.com/repos/{owner}/{repoName}
+
+For example, to get information about the newman code repository from postmanlabs:
+
+-> GET https://api.github.com/repos/postmanlabs/newman
+
+///////////////////////////////////////////////////////////////////////////
+
+#.Path vs. query parameters
+At first it is easy to confuse these two parameter types. Let's compare them side by side. 
+
+
+Path parameters                	                                            |               Query parameters
+ -> ex: /books/abc123	                                                        | -> ex: /books?search=borges&checkedOut=false
+ -> Located directly after a slash in the path. Can be anywhere in the path     | -> Located only at the end of a path, right after a question mark ?
+ -> Accepts dynamic values	                                                  | -> Accepts defined query keys with potentially dynamic values.
+ -> Often used for IDs or entity names	                                      | ->       * Often used for options and filters.
+
+* These are just conventions! Some APIs might ask you to pass an ID or username in a query parameter like this: /users?username=getpostman
+
+/////////////////////////////////////////////////////////////////////////////
+
+#.When to use path parameters?
+
+Always read the API documentation! If a path parameter is required, the documentation will mention this.
+
+Note that some API documentation uses colon syntax to represent a wildcard in the path, like /users/:username, while some use curly braces like /users/{username}. They both mean the same thing: that part of the path is dynamic!
+
+////////////////////////////////////////////////////////////////////////////////
+
+#.Task: Get a book by id
+
+Someone keeps coming into the library every day asking whether "Ficciones" by Jorge Luis Borges is available. 
+
+When you fetched all the books in the library, you may have noticed that each book as a unique id value. This id can always be used to identify the book, even if its other properties are changed.
+
+Since this person keeps asking about "Ficciones", you've jotted down that the unique id for this book is 29cd820f-82f9-4b45-a7f4-0924111b5b89
+
+(Don't believe us? You can always search for "Ficciones" with the search query parameter: GET /books?search=ficciones)
+
+///////////////////////////////////////////////////////////////////////////////////
+
+#.Get a book by id
+
+According to the API documentation, we can get a specific book by hitting the path GET /books/:id, where we replace :id with the book's id.
+
+1.Hover on your Postman Library API v2 Collection, click the three dots icon and select Add request. Name your new request "get book by id"
+
+2.Make sure the request method is set to GET, and paste in this endpoint as the request URL: https://library-api.postmanlabs.com/books/:id
+
+Postman automatically adds a "Path Variables" editor in the Params tab of the request for any path parameters in the request URL prefixed with a colon :
+
+3.In the Params tab of the request, paste the id for "Ficciones" (29cd820f-82f9-4b45-a7f4-0924111b5b89) as the value for the parameter named id. Make sure not to add any whitespace around the id value.
+
+4.Save your request .
+
+5.Send your request.
+
+You should get a 200 OK response with a single JSON object that represents the "Ficciones" book. At the time of this example, the book is not checked out:
+ Postman screenshot: Response from library API for getting specific book by id
+
+//////////////////////////////////////////////////////////////////////////////////
+
+#.Debugging requests in the Postman Console
+
+You used Postman's path variable helper in the Params tab of the request to add a path variable nicknamed :id to the request URL in a human-friendly way. Postman replaces :id with the value you specify for id in the Path Variables editor.
+
+You can always view the raw request sent to the API by opening the Postman Console in the lower left of Postman.
+
+All requests you make and their responses are logged in the Postman Console. Scroll to the bottom to expand the most recent request. 
+
+Postman screenshot: Expanded view of the Postman Console, which has logged the past requests and responses. Here we see the raw request for getting a book - the book id has been interpolated as a path parameter
+
+You can see that Postman has inserted the book id as a path parameter in place of the :id placeholder when making the request. Cool!
 
 
 
